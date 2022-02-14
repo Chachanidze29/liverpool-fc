@@ -30,7 +30,7 @@ require_once 'inc/db-conn.php';
                 $res->execute();
                 if ($res->rowCount() > 0) {
                     while ($news = $res->fetch(PDO::FETCH_ASSOC)) {  ?>
-                        <img src="galleryImages/<?= $news['image_url'] ?>">
+                        <img src="galleryimages/<?= $news['image_url'] ?>">
                 <?php }
                 } ?>
             </div>
