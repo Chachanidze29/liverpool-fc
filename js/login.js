@@ -1,7 +1,7 @@
-let showPassBtn = document.getElementById('showPass');
+let passBtn = document.getElementById('showPass');
 let pass = document.getElementById('regPass');
 let hided = true;
-showPassBtn.addEventListener('change', () => {
+passBtn.addEventListener('change', () => {
     if (hided) {
         pass.type = 'text';
         hided = false;
