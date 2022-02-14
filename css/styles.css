@@ -19,6 +19,21 @@ p{
 
 /* Header For All Pages */
 
+.message{
+    position: relative;
+    font-family: Helvetica;
+    font-size:1rem;
+    color: #00B2A9;
+    text-align: center;
+    border-radius: 0.5rem;
+    font-family: cursive;
+    padding: 0.5rem;
+}
+
+.message button{
+    margin-left: 0.3rem;
+}
+
 header {
     position: relative;
     background-color: #C8102E;
@@ -213,19 +228,75 @@ main:not(#galleryMain,#aboutMeMain,#updateMain){
     margin: 1rem 0;
 }
 
+.changeNews{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.changeNews a{
+    text-decoration:none;
+    color:#00B2A9;
+    border-bottom:1px solid #00B2A9;
+}
+
+#newsMain>a{
+    position: absolute;
+    top: 130px;
+}
+
+#newsMain a{
+    text-decoration:none;
+    color:#FF9;
+    border-bottom:1px solid #FF9;
+}
+
 .specNews{
     max-width: 800px;
     margin: 2rem auto;
     color: #FFF;
 }
 
-.specNews a{
+.backTo{
     text-decoration: none;
-    color: #C8102E;
-    border-bottom: 1px solid #C8102E;
+    color: #00B2A9;
+    border-bottom: 1px solid #00B2A9;
     font-weight: 900;
 }
 
+/* Edit News Main */
+
+.updateAddNews form{
+    margin: 0 auto;
+    padding:1rem;
+    border-radius: 5px;
+}
+
+.updateAddNews input{
+    display:block;
+    margin:1rem;
+    margin-left:0;
+}
+
+.updateAddNews input[type="submit"]{
+    all: unset;
+    display: block;
+    padding: 0.5rem;
+    margin: 0.5rem auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    background-color: #C8102E;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+}
+
+.updateAddNews input[type="submit"]:hover{
+    background-color: #00B2A9;
+    color: #FFF;
+    cursor: pointer;
+}
 /* Gallery Page Main Content */
 
 #galleryMain{
@@ -246,15 +317,48 @@ main:not(#galleryMain,#aboutMeMain,#updateMain){
     max-width: 800px;
 }
 
-.thumb-bar img{
+.thumb-bar .imgs{
+    position: relative;
     max-width: 19.4%;
     margin: 0.3rem 0.3rem 0 0;
 }
 
-.thumb-bar img:hover:not(.private){
+.thumb-bar form{
+    max-width: 19.4%;
+    margin: 0.3rem 0.3rem 0 0;
+    background-color: #C8102E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem;
+}
+
+.imgs:hover:not(.private){
     cursor: pointer;
     transform: translateX(0.3rem) translateY(-0.3rem);
     transition: transform 0.2s;
+}
+
+.private{
+    cursor: context-menu;
+}
+
+.imgs a{
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 200;
+    color: #C8102E;
+    background-color: #FFF;
+    font-weight: 900;
+    font-size: 1.5rem;
+    padding: 0.1rem;
+    text-decoration: none;
+}
+
+.imgs a:hover{
+    transform: scale(1.1);
+    transition: transform 0.5s;
 }
 
 .private{
@@ -282,7 +386,7 @@ main:not(#galleryMain,#aboutMeMain,#updateMain){
     text-align: center;
 }
 
-#aboutMeMain form p{
+#aboutMeMain form p:not(.message){
     color: #FF9;
     font-weight: 900;
 }
@@ -309,6 +413,7 @@ main:not(#galleryMain,#aboutMeMain,#updateMain){
     color: #FFF;
     cursor: pointer;
 }
+
 /* Update Page */
 
 #updateMain{
@@ -379,8 +484,18 @@ main:not(#galleryMain,#aboutMeMain,#updateMain){
         flex-direction: column;
     }
 
-    #newsMain,#galleryMain,#aboutMeMain,#updateMain{
+    #newsMain,#updateMain{
         margin: 1rem;
+    }
+
+    #aboutMeMain,#galleryMain{
+        margin: 1rem auto;
+    }
+
+    #newsMain>a{
+        position: absolute;
+        top: 200px;
+        left: 450px;
     }
 
 }
@@ -388,6 +503,29 @@ main:not(#galleryMain,#aboutMeMain,#updateMain){
 @media screen and (max-width:580px) {
     nav ul {
         flex-flow: column nowrap;
+    }
+
+    #aboutMeMain{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        margin: 1rem;
+    }
+
+    #galleryMain{
+        margin: 1rem;
+    }
+
+    .thumb-bar form{
+        max-width: 33%;
+    }
+
+    #aboutMeMain img{
+        margin: 0;
+    }
+
+    #aboutMeMain p{
+        text-align: justify;
     }
 
     nav li{

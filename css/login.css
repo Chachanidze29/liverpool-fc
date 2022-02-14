@@ -25,16 +25,16 @@
     }
     100% { 
        opacity: 1; 
-       transform: translateX(0px) rotate(0deg); 
+       transform: translateX(0) rotate(0deg); 
     }
- }
+}
 
 body {
     margin: 0;
     background: #FFF;
 }
 
-header {
+#loginHeader {
     position: relative;
     background-color: #C8102E;
     color: #FFF;
@@ -44,28 +44,29 @@ header {
     margin: 0 auto;
 }
 
-.authError{
-    position: absolute;
+.message{
+    position: relative;
     font-family: Helvetica;
     font-size:1rem;
-    bottom:0;
-    margin-left:1rem;
-    color: #FF9;
+    color:#00B2A9;
+    text-align: center;
+    border-radius: 0.5rem;
+    font-family: cursive;
+    padding: 0.5rem;
 }
 
-.regError{
-    color: #FF9;
+.message button{
+    margin-left: 0.3rem;
 }
 
-.heading{
-    font-family:cursive;
-    font-size:1.2rem;
-    margin:0;
-    background-color: #FF9;
-    text-align:center;
+.absMessage{
+    position: absolute;
+    bottom: 0;
+    margin-left: 3rem;
+    margin-bottom: 0.2rem;
 }
 
-header .mainHeader{
+#loginHeader .mainHeader{
     position: relative;
     margin-left: 5.5rem;
 }
@@ -78,7 +79,7 @@ header .mainHeader{
     animation: roll 2s forwards,bounce 2.2s 2.1s forwards;
 }
 
-header h1 {
+#loginHeader h1 {
     font-family: cursive;
 }
 
@@ -88,17 +89,17 @@ header h1 a{
     color: #FFF;
 }
 
-header p {
+#loginHeader p {
     margin-left: 40px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-header .mode{
+#loginHeader .mode{
     position: absolute;
     right: 2.5rem;
 }
 
-header .mode img{
+#loginHeader .mode img{
     width: 2rem;
     cursor: pointer;
 }
@@ -209,25 +210,12 @@ main {
     cursor: pointer;
 }
 
-input {
-    outline: none;
-    border: 1px solid transparent;
-}
-
-input:focus{
-    border: 1px solid lightskyblue;
-}
-
 @media screen and (max-width:1100px) {
-    header {
+    #loginHeader {
         flex-flow: column nowrap;
     }
 
-    .authError{
-        bottom:2rem;
-    }
-
-    header .mainHeader{
+    #loginHeader .mainHeader{
         margin-left: 0;
     }
 
@@ -235,12 +223,12 @@ input:focus{
         right: 220px;
     }
 
-    header .mode{
+    #loginHeader .mode{
         right: 0.3rem;
         top: 1.5rem;
     }
 
-    header a {
+    #loginHeader a {
         text-align: center;
     }
 
@@ -249,12 +237,12 @@ input:focus{
         padding: 0.5rem;
     }
 
-    header p{
+    #loginHeader p{
         text-align: center;
         margin-left: 1rem;
     }
 
-    header h1:before{
+    #loginHeader h1:before{
         content: "he";
         color: transparent;
         background: url('../images/liverpoolLogo.png') no-repeat;

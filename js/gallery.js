@@ -1,6 +1,10 @@
 let displayedImg = document.querySelector('.displayed-img')
 let thumbBar = document.querySelector('.thumb-bar');
 
+let images = document.querySelectorAll('.imgs img');
+
+displayedImg.src = images[0].src;
+
 thumbBar.addEventListener('click', ev => {
     target = ev.target;
     if (target.classList.contains('private')) {
@@ -11,9 +15,7 @@ thumbBar.addEventListener('click', ev => {
 })
 
 if (document.cookie.includes('presence')) {
-    for (item of thumbBar.children) {
-        if (item.tagName === 'IMG') {
-            item.classList.remove('private');
-        }
+    for (img of images) {
+        img.classList.remove('private');
     }
 }

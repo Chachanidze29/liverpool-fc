@@ -76,7 +76,7 @@ function login_user($email, $password)
     if ($prepared->rowCount() > 0) {
         $user = $prepared->fetch(PDO::FETCH_ASSOC);
         if (password_verify($password, $user['password']) && is_user_active($user)) {
-            return $user['id'];
+            return [$user['id'],$user['isAdmin']];
         } else {
             header("Location:login.php?invalid_authPass");
             exit;
@@ -85,7 +85,7 @@ function login_user($email, $password)
         header("Location:login.php?invalid_authMail");
         exit;
     }
-    return null;
+    return [null,null];
 }
 
 function find_unverified_user($activation_code, $email)

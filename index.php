@@ -15,7 +15,7 @@ require_once 'inc/db-conn.php';
             while ($news = $res->fetch(PDO::FETCH_ASSOC)) {  ?>
                 <div class="news">
                     <h3><a href="news.php?id=<?php echo $news['id'] ?>"><?php echo $news['header'] ?></a></h3>
-                    <img src="images/<?= $news['image_url'] ?>">
+                    <img src="newsImages/<?= $news['image_url'] ?>">
                 </div>
         <?php }
         } ?>
@@ -24,10 +24,15 @@ require_once 'inc/db-conn.php';
                 <h2>Gallery</h2>
             </a>
             <div class="images">
-                <img src="./images/gallery1.jpeg" alt="">
-                <img src="./images/gallery2.jpg" alt="">
-                <img src="./images/gallery3.jpeg" alt="">
-                <img src="./images/gallery4.jpg" alt="">
+                <?php
+                $sql = "SELECT * FROM galleryImages ORDER BY id DESC LIMIT 4";
+                $res = $conn->prepare($sql);
+                $res->execute();
+                if ($res->rowCount() > 0) {
+                    while ($news = $res->fetch(PDO::FETCH_ASSOC)) {  ?>
+                        <img src="galleryImages/<?= $news['image_url'] ?>">
+                <?php }
+                } ?>
             </div>
         </div>
     </div>
