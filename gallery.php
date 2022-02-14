@@ -59,7 +59,7 @@ if (isset($_POST['pic'])) {
                     if ($i > 4) { ?>
                         <img class="private" src="galleryimages/<?= $img['image_url'] ?>">
                     <?php } else { ?>
-                        <img src="galleryImages/<?= $img['image_url'] ?>">
+                        <img src="galleryimages/<?= $img['image_url'] ?>">
                     <?php }
                     if (isset($_COOKIE['isAdmin'])) { ?>
                         <a href="deleteImage.php?id=<?php echo $img['id'] ?>">X</a>
